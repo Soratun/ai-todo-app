@@ -17,7 +17,7 @@ defineEmits<{
 </script>
 
 <template>
-  <ul>
+  <ul class="todo-list">
     <TodoItem 
       v-for="todo in todos" 
       :key="todo.id" 
@@ -26,3 +26,11 @@ defineEmits<{
     />
   </ul>
 </template>
+
+<style scoped>
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>

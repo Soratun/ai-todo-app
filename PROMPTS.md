@@ -26,6 +26,9 @@
 - **Prompt:** "Look at the Vue template for the Todo list. Is there too much logic directly inside the HTML structure? Suggest how to move this into `computed` properties or separate methods to avoid template logic smells."
   - **ผลลัพธ์**: [ผลลัพธ์ที่ได้]
   - **หมายเหตุ**: [บันทึกเพิ่มเติม]
+- **Prompt:** "ปรับดีไซร์ ui ทั้งหมด"
+  - **ผลลัพธ์**: อัปเดต CSS (Scoped) ในทุก Component (App, TodoInput, TodoList, TodoItem) ให้เป็น Modern Card Layout
+  - **หมายเหตุ**: การปรับ UI ไม่ส่งผลกระทบต่อ Logic และ Unit Tests เดิม
 
 ## 6. Naming Conventions
 - **Prompt:** "Check the naming of variables and functions in this component. Are there any 'Mysterious Name' smells? Suggest more descriptive and clear names following Vue/TypeScript best practices."
@@ -69,6 +72,12 @@
 - **Prompt:** "ช่วยเขียน Test และโค้ดรับ Event delete ใน TodoList เพื่อส่งต่อไปยัง App.vue ให้หน่อย"
   - **ผลลัพธ์**: `TodoList.vue` ทำ Event Forwarding เพื่อส่งต่อ `delete` ขึ้นไปข้างบนได้
   - **หมายเหตุ**: ส่ง Event ไปให้ App.vue จัดการลบ State
+- **Prompt:** "อัปเดต Test และโค้ดใน App.vue เพื่อให้รับ Event และลบรายการ Todo ออกจาก State อย่างสมบูรณ์เลย"
+  - **ผลลัพธ์**: เพิ่มฟังก์ชัน `handleDeleteTodo` ใน `App.vue` และผ่าน Integration Test เรียบร้อย (Green Phase)
+  - **หมายเหตุ**: ฟีเจอร์ลบทำงานได้สมบูรณ์ 
+- **Prompt:** "ช่วยเพิ่มฟีเจอร์การ Filter (All, Active, Completed) ลงใน App.vue พร้อมกับ Integration Test ให้ด้วย"
+  - **ผลลัพธ์**: สร้างปุ่ม Filter, เพิ่ม Computed Property `filteredTodos` ใน `App.vue` และทำ Integration Test ผ่านเรียบร้อย
+  - **หมายเหตุ**: สามารถกรองรายการได้แล้ว (จะเทสต์ได้สมบูรณ์แบบร้อยเปอร์เซ็นต์ขึ้นเมื่อเพิ่มฟีเจอร์ Toggle Completed ต่อไป)
 
 ---
 *Note: Add new prompts you use during development to this file to keep a record of your AI-assisted engineering practices.*

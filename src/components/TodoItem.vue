@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import TodoItem from './TodoItem.vue'
-
 interface Todo {
   id: number;
   text: string;
@@ -8,7 +6,7 @@ interface Todo {
 }
 
 defineProps<{
-  todos: Todo[]
+  todo: Todo
 }>()
 
 defineEmits<{
@@ -17,12 +15,8 @@ defineEmits<{
 </script>
 
 <template>
-  <ul>
-    <TodoItem 
-      v-for="todo in todos" 
-      :key="todo.id" 
-      :todo="todo" 
-      @delete="$emit('delete', $event)"
-    />
-  </ul>
+  <li>
+    {{ todo.text }}
+    <button class="delete-btn" @click="$emit('delete', todo.id)">Delete</button>
+  </li>
 </template>
